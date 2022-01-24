@@ -9,7 +9,7 @@ const conn = mysql.createConnection ({
     database: 'dbfilm'
 });
 
-//error kondisi
+//error konsssssdisi
 
 conn.connect ((err)=>{
     if (err) throw err;
