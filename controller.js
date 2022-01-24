@@ -12,10 +12,23 @@ exports.index = function (req,res){
 exports.tampilsemuauser = function (req,res){
     connection.query('SELECT * FROM user', function(error, rows, fields){
         if (error){
-            connection.log(error);
+            console.log(error);
         }else {
             response.ok(rows, res)
         }
 
+    });
+};
+
+//menampilka semua data user berdasarkan id
+exports.tampilberdasarkanid = function (req,res){
+    let id = req.params.id;
+    connection.query('SELECT * FROM user WHERE id = ?', [id], 
+    function(error, rows, fields){
+        if (error){
+             console.log (error);
+        }else {
+            response.ok(rows, res); 
+        }
     });
 };
