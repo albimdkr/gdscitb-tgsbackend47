@@ -1,0 +1,19 @@
+{
+  "name": "gdscitb-tgsbackend47",
+  "version": "1.0.0",
+  "description": "Tugas Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albimdkr/gdscitb-tgsbackend47.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albimdkr/gdscitb-tgsbackend47/issues"
+  },
+  "homepage": "https://github.com/albimdkr/gdscitb-tgsbackend47#readme"
+}
