@@ -1,8 +1,8 @@
 'use strick';
 
 var response = require ('./res');
-var connection = require('./koneksi');
+var connection = require ('./koneksi');
 
-export.index = function (req,res){
-    response('aplikasi rest berjalan');
+exports.index = function (req,res){
+    response.ok("aplikasi rest berjalan",res);
 };
