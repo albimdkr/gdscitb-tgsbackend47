@@ -68,3 +68,16 @@ exports.ubahUser = function (req,res) {
     
    });
  }
+
+ //Menghapus data berdasarkan id DELEATE 
+ exports.hapusUser = function (req, res){
+     var id = req.body.id;
+     connection.query('DELETE FROM user WHERE id=?', [id],
+        function (error, rows, fields){
+            if (error){
+                console.log(error);
+            }else {
+                response.ok("Berhasil Hapus Data", res)
+            }
+        });
+ }
