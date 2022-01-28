@@ -20,7 +20,7 @@ exports.tampilsemuauser = function (req,res){
     });
 };
 
-//menampilkan semua data user berdasarkan id GET ID
+//menampilkan semua data user berdasarkan id GET 
 exports.tampilberdasarkanid = function (req,res){
     let id = req.params.id;
     connection.query('SELECT * FROM user WHERE id = ?', [id], 
@@ -49,3 +49,22 @@ exports.tambahUser = function (req, res){
     });
 
 };
+
+
+//Mengubah data berdasarkan id PUT
+exports.ubahUser = function (req,res) {
+    var id = req.body.id;
+    var uname = req.body.uname;
+    var pwd = req.body.pwd;
+ 
+    connection.query('UPDATE user SET uname=?, pwd=? WHERE id=?', 
+    [uname,pwd,id],
+        function (error, rows, field){
+            if (error){
+            console.log(error);
+            }else {
+            response.ok("berhasil mengubah Data", res)
+        }
+    
+   });
+ }
