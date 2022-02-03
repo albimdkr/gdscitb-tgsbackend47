@@ -1,6 +1,6 @@
 var connection = require ('../koneksi');
 var mysql = require ('mysql');
-var md5 = require ('MDS');
+var md5 = require ('MD5');
 var response = require ('../res');
 var jwt = require ('jsonwebtoken');
 var config = require ('../config/secret');
@@ -13,7 +13,7 @@ exports.registrasi = function (req, res){
         pwd  : md5(req.body.pwd),
     }
 
-    var query = "SELECT uname FROM ?? WHERE ??";
+    var query = "SELECT uname FROM ?? WHERE ??=?";
     var table = ["user", "uname", post.uname];
 
     query = mysql.format(query, table);
@@ -23,7 +23,7 @@ exports.registrasi = function (req, res){
             console.log(error);
         }else {
             if(rows.length == 0){
-                var query = "INSERT INTO ?? SET";
+                var query = "INSERT INTO ?? SET ?";
                 var table = ["user"];
                 query = mysql.format(query, table);
                 connection.query(query, post, function (error, rows){
@@ -34,7 +34,7 @@ exports.registrasi = function (req, res){
                      }
                 });  
             }else {
-                response.ok ("username sudah terdaftar");
+                response.ok ("username sudah terdaftar", res);
             }
         }
     })
