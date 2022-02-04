@@ -13,6 +13,7 @@ exports.registrasi = function (req, res){
         username : req.body.username,
         email : req.body.email,
         password : md5(req.body.password),
+        role: req.body.role,
     }
 
     var query = "SELECT username FROM ?? WHERE ??=?";
@@ -96,5 +97,5 @@ exports.login = function (req, res){
 }
 
 exports.halamanrahasia = function (req, res){
-    response.ok ("Halaman ini hanya untuk user dengan role = 2");
+    response.ok ("Halaman ini hanya untuk user dengan role = 2", res);
 }

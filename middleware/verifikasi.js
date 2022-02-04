@@ -1,19 +1,19 @@
-const req = require('express/lib/request');
 const jwt = require ('jsonwebtoken');
 const config = require ('../config/secret');
 
-function verifikasi (roles) {
-    //cek authorizen header
+function verifikasi (role) {
     return function(req, rest, next){
+        //cek authorizen header
     var tokenWithBearer = req.headers.authorization;
+    
     if (tokenWithBearer){
         var token = tokenWithBearer.split(' ')[1];
         //verifikasi
         jwt.verify(token, config.secret, function (err, decoded){
             if (err){
-                return resizeTo.status(401).send({auth:false, message: 'Token tidak terdaftar'});
+                return rest.status(401).send({auth:false, message: 'Token tidak terdaftar'});
             }else {
-                if(roles==2){
+                if(role == 1){
                     req.auth = decoded;
                     next();
                 }else {
@@ -27,4 +27,4 @@ function verifikasi (roles) {
     }
 }
 
-module.exports = verifikasi;
+module.exports = verifikasi
