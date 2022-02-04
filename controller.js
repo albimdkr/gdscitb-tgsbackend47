@@ -54,11 +54,12 @@ exports.tambahUser = function (req, res){
 //Mengubah data berdasarkan id PUT
 exports.ubahUser = function (req,res) {
     var id = req.body.id;
-    var uname = req.body.uname;
-    var pwd = req.body.pwd;
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
  
     connection.query('UPDATE user SET uname=?, pwd=? WHERE id=?', 
-    [uname,pwd,id],
+    [username,password,email,id],
         function (error, rows, field){
             if (error){
             console.log(error);
