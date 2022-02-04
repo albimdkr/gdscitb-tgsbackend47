@@ -71,22 +71,6 @@ exports.login = function (req, res){
                     ip_address: ip.address()
                 }
 
-                /* 
-                  var data = {
-                         id_user: id_user,
-                         access_token: token,
-                         ip_address: ip.address()
-                    }
-                */
-
-
-                /*var query = "INSERT INTO ?? SET ?";
-                var table = ["akses_token"];
-
-                query = mysql.format(query, table);
-                connection.query(query, data, function (error, rows) {*/
-                
-
                 var query = "INSERT INTO ?? SET ?";
                 var table = ["akses_token"];
  
@@ -108,7 +92,9 @@ exports.login = function (req, res){
                 res.json ({"error": true, "message": "username atau password anda salah !"});
             }
         }
-
-
     });
+}
+
+exports.halamanrahasia = function (req, res){
+    response.ok ("Halaman ini hanya untuk user dengan role = 2");
 }
